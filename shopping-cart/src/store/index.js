@@ -4,22 +4,22 @@ import Vue from 'vue'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    state:{//=data
-        products:[]
+    state: {//=data
+        products: []
     },
-    getters:{//computed properties
-        productsCount(){
-
+    getters: {//computed properties
+        availableProducts (state, getters){
+            return state.products.filter(product => product.inventory > 0)
         }
 
     },
-    actions:{
-        fetchProducts(){
+    actions: {
+        fetchProducts() {
             //make the call
         }
     },
-    mutations:{
-        setProducts(state, products	){
+    mutations: {
+        setProducts(state, products) {
             //update products
             state.products = products
         }
