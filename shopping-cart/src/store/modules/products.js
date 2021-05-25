@@ -1,6 +1,8 @@
 
 import shop from "@/api/shop";
 export default {
+    namespaced:true,
+
     state: {
         items: []
     },
@@ -41,15 +43,6 @@ export default {
             })
         },
 
-        checkout({ state, commit }) {
-
-            shop.buyProducts(state.cart, () => {
-                commit('emptyCart')
-                commit('setCheckoutStatus', 'succes')
-            }, () => { commit('setCheckoutStatus', 'fail') }
-
-            )
-        }
 
 
     },
